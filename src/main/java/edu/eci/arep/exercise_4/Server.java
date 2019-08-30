@@ -14,26 +14,35 @@ public class Server {
     public static void main(String[] args) throws Exception{
         ServerSocket serverSocket = new ServerSocket(35000);
         Socket client = serverSocket.accept();
-        PrintWriter outS = new PrintWriter(client.getOutputStream(), true);
-		BufferedReader inS = new BufferedReader(new InputStreamReader(client.getInputStream()));
-        String line, oper="cos";
-        while((line = inS.readLine())!= null){
-            if(line.charAt(0)=='p'){
-                double number=Math.PI/Integer.parseInt(line.substring(2));
-                line = Double.toString(number);
+        PrintWriter out = new PrintWriter(client.getOutputStream(), true);
+		BufferedReader in = new BufferedReader(new InputStreamReader(client.getInputStream()));
+        String inputLine, outputLine,fun="cos";
+        while((inputLine = in.readLine())!= null){
+            System.out.println("Mensaje:" + inputLine);
+            outputLine = "Respuesta: ";
+            String rta="";
+
+            if (inputLine.length() > 4 && inputLine.substring(0, 4).equals("fun:")) {
+                if (inputLine.contains("sin")) {
+                    fun = "sin";
+                } else if (inputLine.contains("cos")) {
+                    fun = "cos";
+                } else if (inputLine.contains("tan")) {
+                    fun = "tan";
+                }
+            } else {
+                if (fun.equals("cos")) {
+                    rta = Double.toString(Math.cos(Double.parseDouble(inputLine)));
+                } else if (fun.equals("sin")) {
+                    rta = Double.toString(Math.sin(Double.parseDouble(inputLine)));
+                } else if (fun.equals("tan")) {
+                    rta = Double.toString(Math.tan(Double.parseDouble(inputLine)));
+                } 
             }
-            if(line.length()>4 && line.substring(0,4).equals("fun:")){
-                oper=line.substring(4,7);
-            }else{
-                if(oper.equals("sin")) outS.println(Math.sin(Double.parseDouble(line)));
-                else if(oper.equals("cos")) outS.println(Math.cos(Double.parseDouble(line)));
-                else outS.println(Math.tan(Double.parseDouble(line)));
-            }
-            System.out.println(oper);
+            out.println(outputLine + rta);
         }
-        System.out.println("ola k tal chavalada");
-        outS.close();
-		inS.close();
+        out.close();
+		in.close();
 		client.close();
 		serverSocket.close();
     }

@@ -20,7 +20,6 @@ public class Cliente {
             outC.println(line);
             System.out.println(inC.readLine());
         }
-        System.out.println("ola k tal chavalada");
         br.close();
         inC.close();
         outC.close();
