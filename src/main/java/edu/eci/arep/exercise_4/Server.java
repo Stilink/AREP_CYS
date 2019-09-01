@@ -25,7 +25,7 @@ public class Server {
             }
             if(line.length()>4 && line.substring(0,4).equals("fun:")){
                 oper=line.substring(4,7);
-                outS.println("Función establecida en: "+oper);
+                outS.println("Funcion establecida en: "+oper);
             }else{
                 if(oper.equals("sin")) outS.println(Math.sin(Double.parseDouble(line)));
                 else if(oper.equals("cos")) outS.println(Math.cos(Double.parseDouble(line)));
