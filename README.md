@@ -32,10 +32,9 @@ Servidor que presenta un servidor web. Retorna una respuesta simple "Test".
 Servidor web que soporte multiples peticiones.
 ![alt text](https://github.com/Stilink/AREP_CYS/blob/master/img/4_5_prueba_png.PNG)
 ![alt text](https://github.com/Stilink/AREP_CYS/blob/master/img/4_5_prueba_html.PNG)
-![alt text](https://github.com/Stilink/AREP_CYS/blob/master/img/1.PNG)
 
 # Aclaraciones
 Para ejecutar los ejercicios, funciona con lo siguiente:
-> mvn package
-> mvn exec:java -Dexec.mainClass="edu.eci.arep.exercise_**X**.**CLASS**"
+> mvn package <
+> mvn exec:java -Dexec.mainClass="edu.eci.arep.exercise_**X**.**CLASS**" <
 Para más información recurrir al código de los mismos.
