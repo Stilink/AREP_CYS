@@ -35,6 +35,6 @@ Servidor web que soporte multiples peticiones.
 
 # Aclaraciones
 Para ejecutar los ejercicios, funciona con lo siguiente:
-> mvn package <
-> mvn exec:java -Dexec.mainClass="edu.eci.arep.exercise_**X**.**CLASS**" <
+> - mvn package
+> - mvn exec:java -Dexec.mainClass="edu.eci.arep.exercise_**X**.**CLASS**" 
 Para más información recurrir al código de los mismos.
